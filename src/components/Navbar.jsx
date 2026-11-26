@@ -40,58 +40,52 @@ export default function Navbar() {
     >
       {/* Floating Cyber Dynamic Island Container */}
       <div className="max-w-[97.22rem] mx-auto pointer-events-auto">
-        <div className="relative rounded-2xl bg-[#000000]/88 backdrop-blur-2xl border border-white/[0.12] shadow-[0_12px_45px_rgba(0,0,0,0.92)] px-4 sm:px-6 h-16 flex items-center justify-between transition-all duration-300 hover:border-white/20">
+        <div className="relative rounded-2xl bg-[#000000]/88 backdrop-blur-2xl border border-white/[0.12] shadow-[0_12px_45px_rgba(0,0,0,0.92)] px-4 sm:px-6 h-16 flex items-center justify-between gap-4 transition-all duration-300 hover:border-white/20">
           
           {/* Top subtle neon seam glow */}
           <div className="absolute top-0 inset-x-8 h-px bg-gradient-to-r from-transparent via-[#FFB703]/50 to-transparent" />
 
-          {/* Left: Interactive Brand Logo with Magnetic Letters */}
-          <div className="flex items-center gap-3 shrink-0">
-            <AnimatedLink
-              to="/"
-              className="flex items-center gap-2.5 group"
-              onMouseEnter={() => playPop(1.0)}
-            >
-              <UnstableEmblem className="w-8 h-8 transition-transform group-hover:scale-110 drop-shadow-[0_0_12px_rgba(255,183,3,0.35)]" />
-              <div className="flex items-center gap-1 font-unbounded font-black text-base sm:text-lg tracking-tight">
-                <div className="flex items-center">
-                  {BRAND_LETTERS.map((char, index) => (
-                    <motion.span
-                      key={index}
-                      className="inline-block text-white"
-                      whileHover={{ y: -3, scale: 1.18, color: '#FFB703' }}
-                      transition={{ type: 'spring', stiffness: 500, damping: 15 }}
-                      onMouseEnter={(e) => {
-                        e.stopPropagation();
-                        playPop(1.0 + index * 0.08);
-                      }}
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                </div>
-                <span className="text-gold-gradient font-black">.FUN</span>
+          {/* Left: Interactive Brand Logo with pulsing status dot */}
+          <AnimatedLink
+            to="/"
+            className="flex items-center gap-2.5 group shrink-0"
+            onMouseEnter={() => playPop(1.0)}
+          >
+            <UnstableEmblem className="w-8 h-8 transition-transform group-hover:scale-110 drop-shadow-[0_0_12px_rgba(255,183,3,0.35)] shrink-0" />
+            <div className="flex items-center gap-1 font-unbounded font-black text-base sm:text-lg tracking-tight">
+              <div className="flex items-center">
+                {BRAND_LETTERS.map((char, index) => (
+                  <motion.span
+                    key={index}
+                    className="inline-block text-white"
+                    whileHover={{ y: -3, scale: 1.18, color: '#FFB703' }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+                    onMouseEnter={(e) => {
+                      e.stopPropagation();
+                      playPop(1.0 + index * 0.08);
+                    }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
               </div>
-            </AnimatedLink>
-
-            {/* Live Bot Status Dot (Neko style) */}
-            <div className="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] font-mono text-[10px] text-zinc-400">
-              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shadow-[0_0_8px_#10B981]" />
-              <span className="font-bold text-zinc-300">4 ONLINE</span>
-              <span className="text-zinc-600">|</span>
-              <span className="text-[#FFB703] font-bold">14% SANITY</span>
+              <span className="text-gold-gradient font-black">.FUN</span>
             </div>
-          </div>
+            <span
+              className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shadow-[0_0_8px_#10B981] ml-0.5 shrink-0"
+              title="4 Bots Online • 14% Sanity"
+            />
+          </AnimatedLink>
 
-          {/* Center Nav Links with active indicator */}
-          <nav className="hidden lg:inline-flex items-center gap-1 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+          {/* Center Nav Links (Flexbox, NEVER overlapping) */}
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 shrink-0">
             {NAV_LINKS.map((item) => {
               const isActive = location.pathname === item.to;
               return (
                 <AnimatedLink
                   key={item.to}
                   to={item.to}
-                  className={`h-9 px-3.5 rounded-xl font-mono text-xs uppercase tracking-wider flex items-center justify-center transition-all relative ${
+                  className={`h-9 px-2.5 xl:px-3.5 rounded-xl font-mono text-[11px] xl:text-xs uppercase tracking-wider flex items-center justify-center transition-all whitespace-nowrap ${
                     isActive
                       ? 'text-[#FFB703] font-bold bg-[#FFB703]/10 border border-[#FFB703]/30 shadow-[0_0_15px_rgba(255,183,3,0.15)]'
                       : 'text-zinc-400 hover:text-white hover:bg-white/[0.05]'
@@ -109,7 +103,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right Actions: Sound Toggle + Discord HQ + Invite CTA */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
             {/* Audio Synth Equalizer Toggle */}
             <button
               onClick={handleSoundToggle}
