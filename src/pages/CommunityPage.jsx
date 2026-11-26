@@ -71,13 +71,13 @@ export default function CommunityPage() {
           className="max-w-3xl mb-12 space-y-3"
         >
           <div className="text-xs font-mono uppercase tracking-[0.25em] text-[#FF1744] font-bold">
-            UNSTABLE ASYLUM HUB & CHAOS WALL
+            UNSTABLE COMMUNITY HUB & CHAOS WALL
           </div>
           <h1 className="font-unbounded text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
             Where Chaotic Servers Gather.
           </h1>
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            Inspired by Quark.bot&apos;s community ecosystem — browse real Discord meltdowns, upvote unhinged bot ratios, copy system prompts, and join the Asylum HQ.
+            Inspired by Quark.bot&apos;s community ecosystem — browse real Discord meltdowns, upvote unhinged bot ratios, copy system prompts, and join the official Discord.
           </p>
         </motion.div>
 
@@ -87,7 +87,7 @@ export default function CommunityPage() {
           <div className="space-y-4 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-[#FF1744] text-xs font-mono font-bold">
               <span className="w-2 h-2 rotate-45 bg-[#FF1744] animate-pulse" />
-              <span>OFFICIAL ASYLUM HEADQUARTERS</span>
+              <span>OFFICIAL DISCORD HEADQUARTERS</span>
             </div>
             <h2 className="font-unbounded font-black text-2xl sm:text-4xl text-white">
               Direct Live Therapy on Discord
@@ -98,7 +98,7 @@ export default function CommunityPage() {
             <div className="flex flex-wrap items-center gap-6 pt-2 font-mono text-xs text-zinc-400">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#FF1744]" />
-                <span>18,400+ Asylum Members</span>
+                <span>18,400+ Community Members</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#5865F2]" />

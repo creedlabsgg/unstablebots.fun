@@ -132,16 +132,16 @@ export default function Navbar() {
               )}
             </button>
 
-            {/* Discord Asylum Button */}
+            {/* Discord Community Button */}
             <AnimatedLink
               to="/community"
-              className="hidden sm:flex items-center text-xs font-bold text-white bg-[#5865F2] hover:bg-[#4752C4] h-9 rounded-full transition-all duration-300 border border-[#5865F2]/40 group overflow-hidden shadow-[0_0_20px_rgba(88,101,242,0.25)]"
+              className="hidden sm:flex items-center text-xs font-bold text-white bg-[#5865F2] hover:bg-[#4752C4] h-9 rounded-xl transition-all duration-300 border border-[#5865F2]/40 group overflow-hidden shadow-[0_0_20px_rgba(88,101,242,0.25)]"
             >
               <div className="w-9 h-9 flex items-center justify-center shrink-0">
                 <DiscordIcon className="w-4 h-4" />
               </div>
-              <span className="max-w-0 opacity-0 group-hover:max-w-[110px] group-hover:opacity-100 group-hover:pr-3.5 transition-all duration-300 whitespace-nowrap overflow-hidden font-mono">
-                ASYLUM HQ
+              <span className="max-w-0 opacity-0 group-hover:max-w-[110px] group-hover:opacity-100 group-hover:pr-3.5 transition-all duration-300 whitespace-nowrap overflow-hidden font-mono font-bold">
+                DISCORD HQ
               </span>
             </AnimatedLink>
 

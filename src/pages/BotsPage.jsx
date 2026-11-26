@@ -173,10 +173,10 @@ export default function BotsPage() {
           className="text-center mb-14"
         >
           <span className="font-mono text-xs text-[#FF1744] tracking-[0.28em] uppercase mb-3 block font-bold">
-            [ PERSONNEL DOSSIERS // LINEUP V4 ]
+            PERSONNEL DOSSIERS • THE ROSTER
           </span>
           <h1 className="font-unbounded font-black text-4xl sm:text-6xl text-white mb-4">
-            Meet The <span className="text-unstable-gradient">Asylum Lineup</span>
+            Meet The <span className="text-unstable-gradient">Bot Squad</span>
           </h1>
           <p className="font-outfit text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto">
             Discord bots with emotional baggage. Inspect their exact system prompts, sanity levels, and sample roasts before unleashing them.

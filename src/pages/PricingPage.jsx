@@ -74,7 +74,7 @@ export default function PricingPage() {
         className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 relative z-10"
       >
         <span className="font-mono text-xs text-[#FFB703] tracking-[0.28em] uppercase mb-4 block font-bold">
-          [ SERVER TARIFFS // TRANSPARENT PRICING ]
+          TRANSPARENT PRICING
         </span>
         <h1 className="font-unbounded font-black text-4xl sm:text-6xl text-white mb-4 tracking-tight">
           Unleash Chaos Without <span className="text-gold-gradient">Limits.</span>
@@ -145,7 +145,7 @@ export default function PricingPage() {
             <div className="p-8 relative z-10 flex flex-col flex-grow">
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-bold text-emerald-400 tracking-widest uppercase">
-                  [ STARTER DISCORD TIER ]
+                  STARTER TIER
                 </span>
                 <span className="font-mono text-[10px] text-zinc-500 uppercase">FREE FOREVER</span>
               </div>
@@ -199,7 +199,7 @@ export default function PricingPage() {
           </div>
         </TiltPricingCard>
 
-        {/* Tier 2: Asylum Pro (Featured Popular Card with Molten Gold Aura) */}
+        {/* Tier 2: Unstable Pro (Featured Popular Card with Molten Gold Aura) */}
         <TiltPricingCard>
           <div className="bg-[#050505] border border-[#FFB703]/50 rounded-3xl h-full flex flex-col justify-between shadow-[0_0_40px_rgba(255,183,3,0.2)] relative group transform md:-translate-y-4 transition-all duration-300 hover:border-[#FFB703] hover:shadow-[0_0_60px_rgba(255,183,3,0.35)]">
             
@@ -228,12 +228,12 @@ export default function PricingPage() {
             <div className="p-8 relative z-10 flex flex-col flex-grow">
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-bold text-[#FFB703] tracking-widest uppercase">
-                  [ PREMIUM ASYLUM PASS ]
+                  PREMIUM PASS
                 </span>
                 <span className="font-mono text-[10px] text-[#FFB703] uppercase font-bold">TOP CHOICE</span>
               </div>
               <h3 className="font-unbounded font-black text-2xl text-white mb-2 flex items-center gap-2">
-                <span>Asylum Pro</span>
+                <span>Unstable Pro</span>
                 <Sparkles className="w-5 h-5 text-[#FFB703]" />
               </h3>
               <p className="font-outfit text-xs text-zinc-300 mb-6">
@@ -298,7 +298,7 @@ export default function PricingPage() {
                 }}
                 className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#FFB703] via-[#FB8500] to-[#FF1744] hover:brightness-110 text-black font-unbounded font-black text-xs uppercase tracking-wider transition-all hover:scale-[1.03] active:scale-95 cursor-pointer shadow-[0_0_30px_rgba(255,183,3,0.35)] flex items-center justify-center gap-2"
               >
-                <span>Upgrade to Asylum Pro</span>
+                <span>Upgrade to Unstable Pro</span>
                 <Zap className="w-4 h-4 fill-black" />
               </button>
             </div>
@@ -327,7 +327,7 @@ export default function PricingPage() {
             <div className="p-8 relative z-10 flex flex-col flex-grow">
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-bold text-[#B388FF] tracking-widest uppercase">
-                  [ ENTERPRISE SYNDICATE ]
+                  ENTERPRISE SYNDICATE
                 </span>
                 <span className="font-mono text-[10px] text-zinc-500 uppercase">WHITE-LABEL</span>
               </div>
@@ -398,7 +398,7 @@ export default function PricingPage() {
             Compare Plan Capabilities
           </h2>
           <p className="font-outfit text-zinc-400 text-sm">
-            Complete technical breakdown between Free Chaos, Asylum Pro, and Syndicate.
+            Complete technical breakdown between Free Chaos, Unstable Pro, and Syndicate.
           </p>
         </div>
 
@@ -406,7 +406,7 @@ export default function PricingPage() {
           <div className="grid grid-cols-4 bg-[#0a0a0c] p-4 sm:p-5 border-b border-white/10 font-mono text-[11px] font-bold tracking-widest uppercase text-zinc-400">
             <div className="col-span-1 pl-2">PROTOCOL FEATURE</div>
             <div className="col-span-1 text-center text-white">FREE CHAOS</div>
-            <div className="col-span-1 text-center text-[#FFB703]">ASYLUM PRO</div>
+            <div className="col-span-1 text-center text-[#FFB703]">UNSTABLE PRO</div>
             <div className="col-span-1 text-center text-purple-400">SYNDICATE</div>
           </div>
 
@@ -430,13 +430,13 @@ export default function PricingPage() {
           Need a custom server quote or partnership?
         </h3>
         <p className="font-outfit text-sm text-zinc-400 mb-6">
-          Reach out in our Discord Asylum HQ. Standard Issue will file an expedited inquiry ticket within minutes.
+          Reach out in our Discord server. Standard Issue will file an expedited inquiry ticket within minutes.
         </p>
         <button
           onClick={() => openInviteModal('all')}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#FFB703] to-[#FB8500] text-black font-unbounded font-bold text-xs uppercase tracking-wider cursor-pointer hover:scale-105 transition-all"
         >
-          <span>Contact Asylum Desk</span>
+          <span>Contact Support Desk</span>
         </button>
       </div>
     </div>

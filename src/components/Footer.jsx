@@ -466,7 +466,7 @@ export default function Footer() {
                 <li>
                   <AnimatedLink to="/community" className={getLinkClass()}>
                     <MessageCircle className={getIconClass(false, 'company')} />
-                    <span className={getTextClass()}>Join Asylum</span>
+                    <span className={getTextClass()}>Join Discord</span>
                   </AnimatedLink>
                 </li>
               </ul>

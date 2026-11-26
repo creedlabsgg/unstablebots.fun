@@ -30,7 +30,7 @@ export default function AboutPage() {
       <div className="max-w-4xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
           <span className="font-mono text-xs text-[#FF9100] tracking-[0.28em] uppercase mb-3 block font-bold">
-            [ INCIDENT REPORT #004 ]
+            INCIDENT REPORT #004
           </span>
           <h1 className="font-unbounded font-black text-4xl sm:text-6xl text-white mb-4">
             We Gave AI <span className="text-unstable-gradient">Emotional Baggage.</span>
@@ -97,7 +97,7 @@ export default function AboutPage() {
 
         <div className="rounded-3xl border border-white/[0.1] bg-[#000000] p-10 text-center">
           <Heart className="w-8 h-8 text-[#FF1744] mx-auto mb-3" />
-          <h3 className="font-unbounded font-black text-2xl text-white mb-2">Ready to test the asylum?</h3>
+          <h3 className="font-unbounded font-black text-2xl text-white mb-2">Ready to test the bots?</h3>
           <p className="text-zinc-400 text-sm mb-6">Head straight to the interactive simulator or invite the squad.</p>
           <AnimatedLink
             to="/arena"

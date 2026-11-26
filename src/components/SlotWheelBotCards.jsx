@@ -12,7 +12,7 @@ const BOT_THEMES = {
     secondary: '#FFB703',
     glow: 'rgba(255, 23, 68, 0.5)',
     mist: ['#FF1744', '#FF9100', '#FFB703'],
-    archetype: '01 / RAGE-BAITER',
+    archetype: 'RAGE-BAITER',
     accentText: 'text-[#FF1744]',
     borderActive: 'border-[#FF1744]/70 shadow-[0_0_40px_rgba(255,23,68,0.35)]',
     tag: 'CHAOS GRADE A',
@@ -25,7 +25,7 @@ const BOT_THEMES = {
     secondary: '#00E5FF',
     glow: 'rgba(124, 77, 255, 0.45)',
     mist: ['#7C4DFF', '#3D5AFE', '#00E5FF'],
-    archetype: '02 / DEPRESSED NIHILIST',
+    archetype: 'DEPRESSED NIHILIST',
     accentText: 'text-[#B388FF]',
     borderActive: 'border-[#7C4DFF]/70 shadow-[0_0_40px_rgba(124,77,255,0.35)]',
     tag: 'VOID VOICED',
@@ -38,7 +38,7 @@ const BOT_THEMES = {
     secondary: '#FFD166',
     glow: 'rgba(251, 133, 0, 0.5)',
     mist: ['#FB8500', '#FFB703', '#FFD166'],
-    archetype: '03 / AGGRESSIVE MOTIVATOR',
+    archetype: 'AGGRESSIVE MOTIVATOR',
     accentText: 'text-[#FFB703]',
     borderActive: 'border-[#FB8500]/70 shadow-[0_0_40px_rgba(251,133,0,0.35)]',
     tag: '5 AM COLD SHOWER',
@@ -51,7 +51,7 @@ const BOT_THEMES = {
     secondary: '#10B981',
     glow: 'rgba(0, 229, 255, 0.45)',
     mist: ['#00E5FF', '#00B0FF', '#10B981'],
-    archetype: '04 / CORPORATE HR ASSISTANT',
+    archetype: 'CORPORATE HR ASSISTANT',
     accentText: 'text-[#00E5FF]',
     borderActive: 'border-[#00E5FF]/70 shadow-[0_0_40px_rgba(0,229,255,0.35)]',
     tag: 'TICKET #404-HR',
@@ -138,7 +138,7 @@ export default function SlotWheelBotCards() {
           Pick Your <span className="text-gold-gradient">Mental Breakdown.</span>
         </h2>
         <p className="font-outfit text-zinc-400 text-sm sm:text-base max-w-xl mx-auto">
-          Hover to focus a bot and fade the others. Or trigger the asylum slot machine to randomly unleash one into your Discord server.
+          Hover to focus a bot and fade the others. Or roll the bot slot machine to randomly unleash one into your Discord server.
         </p>
 
         {/* Slot Controls & Quick Tabs */}
@@ -151,7 +151,7 @@ export default function SlotWheelBotCards() {
             }`}
           >
             <Dices className={`w-4 h-4 ${isSpinning ? 'animate-spin' : ''}`} />
-            <span>{isSpinning ? 'ROLLING REEL...' : 'SPIN ASYLUM SLOT'}</span>
+            <span>{isSpinning ? 'ROLLING REEL...' : 'SPIN BOT SLOT'}</span>
           </button>
 
           <div className="flex items-center gap-1 bg-[#0a0a0c] border border-white/10 rounded-xl p-1">
@@ -259,7 +259,7 @@ export default function SlotWheelBotCards() {
                   {/* Monospace Header & Status */}
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-mono text-[10px] text-zinc-400 font-bold tracking-widest uppercase">
-                      [ {theme.archetype} ]
+                      {theme.archetype}
                     </span>
                     <span
                       className="font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-md border border-white/10 uppercase tracking-wider"

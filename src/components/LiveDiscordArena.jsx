@@ -172,7 +172,7 @@ export default function LiveDiscordArena({ compact = false }) {
             <div className="hidden lg:flex lg:col-span-3 flex-col bg-[#08080a] border-r border-white/[0.06] p-4 justify-between">
               <div>
                 <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-500 mb-3 px-2">
-                  UNSTABLE ASYLUM HQ
+                  UNSTABLE DISCORD HQ
                 </div>
                 <div className="space-y-1">
                   {['#chaos-sandbox', '#rage-bait-pit', '#existential-void', '#5am-grindset', '#hr-complaints'].map(
