@@ -16,6 +16,9 @@ const BOT_THEMES = {
     accentText: 'text-[#FF1744]',
     borderActive: 'border-[#FF1744]/70 shadow-[0_0_40px_rgba(255,23,68,0.35)]',
     tag: 'CHAOS GRADE A',
+    aggression: 99,
+    cooldown: '0.2s',
+    drama: 'SSS',
   },
   'lost-cause': {
     primary: '#7C4DFF',
@@ -26,6 +29,9 @@ const BOT_THEMES = {
     accentText: 'text-[#B388FF]',
     borderActive: 'border-[#7C4DFF]/70 shadow-[0_0_40px_rgba(124,77,255,0.35)]',
     tag: 'VOID VOICED',
+    aggression: 4,
+    cooldown: '3.5s',
+    drama: 'D-',
   },
   'hard-truth': {
     primary: '#FB8500',
@@ -36,6 +42,9 @@ const BOT_THEMES = {
     accentText: 'text-[#FFB703]',
     borderActive: 'border-[#FB8500]/70 shadow-[0_0_40px_rgba(251,133,0,0.35)]',
     tag: '5 AM COLD SHOWER',
+    aggression: 92,
+    cooldown: '0.1s',
+    drama: 'A+',
   },
   'standard-issue': {
     primary: '#00E5FF',
@@ -46,6 +55,9 @@ const BOT_THEMES = {
     accentText: 'text-[#00E5FF]',
     borderActive: 'border-[#00E5FF]/70 shadow-[0_0_40px_rgba(0,229,255,0.35)]',
     tag: 'TICKET #404-HR',
+    aggression: 12,
+    cooldown: '1.0s',
+    drama: 'HR PENDING',
   },
 };
 
@@ -268,16 +280,16 @@ export default function SlotWheelBotCards() {
                   <div className="mb-4">
                     <h3 className="font-unbounded font-black text-2xl text-white tracking-tight group-hover:text-white flex items-center gap-2">
                       <span>{bot.name}</span>
-                      <span className="text-xs font-mono font-normal text-zinc-400">{bot.handle}</span>
+                      <span className="text-xs font-mono font-normal text-zinc-400">{bot.slash || bot.prefix}</span>
                     </h3>
                     <p className={`font-mono text-xs font-bold uppercase tracking-wide mt-1 ${theme.accentText}`}>
-                      {bot.tagline}
+                      {bot.subtitle}
                     </p>
                   </div>
 
                   {/* Clean Quote Box (No rounded AI pills) */}
                   <div className="my-3 p-3.5 rounded-2xl bg-black/75 border-l-2 border-white/20 font-outfit text-xs text-zinc-300 italic leading-relaxed">
-                    &ldquo;{bot.sampleLines[0]}&rdquo;
+                    &ldquo;{bot.sampleMessages?.[0] || 'AI with emotional baggage.'}&rdquo;
                   </div>
 
                   {/* Micro Bento Node Specs (Image 2 style) */}
@@ -285,25 +297,25 @@ export default function SlotWheelBotCards() {
                     <div className="bg-[#0a0a0c]/80 rounded-xl p-2.5 border border-white/[0.04]">
                       <div className="font-mono text-[9px] text-zinc-400 uppercase tracking-widest">AGGRESSION</div>
                       <div className="font-unbounded font-bold text-xs text-white mt-0.5">
-                        {bot.stats.aggression}%
+                        {theme.aggression}%
                       </div>
                     </div>
                     <div className="bg-[#0a0a0c]/80 rounded-xl p-2.5 border border-white/[0.04]">
                       <div className="font-mono text-[9px] text-zinc-400 uppercase tracking-widest">SANITY</div>
                       <div className="font-unbounded font-bold text-xs text-white mt-0.5">
-                        {bot.stats.sanity}%
+                        {bot.sanity}%
                       </div>
                     </div>
                     <div className="bg-[#0a0a0c]/80 rounded-xl p-2.5 border border-white/[0.04]">
                       <div className="font-mono text-[9px] text-zinc-400 uppercase tracking-widest">COOLDOWN</div>
                       <div className="font-unbounded font-bold text-xs text-white mt-0.5">
-                        {bot.stats.responseSpeed}
+                        {theme.cooldown}
                       </div>
                     </div>
                     <div className="bg-[#0a0a0c]/80 rounded-xl p-2.5 border border-white/[0.04]">
                       <div className="font-mono text-[9px] text-zinc-400 uppercase tracking-widest">DRAMA RATING</div>
                       <div className="font-unbounded font-bold text-xs text-[#FFB703] mt-0.5">
-                        {bot.stats.dramaIndex}
+                        {theme.drama}
                       </div>
                     </div>
                   </div>
