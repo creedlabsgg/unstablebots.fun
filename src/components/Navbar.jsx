@@ -93,7 +93,7 @@ export default function Navbar() {
                 >
                   {item.label}
                   {item.label === 'Pricing' && (
-                    <span className="ml-1.5 px-1.5 py-0.2 rounded-full bg-[#FF1744] text-[9px] font-bold text-white font-mono">
+                    <span className="ml-1.5 px-1.5 py-0.5 rounded bg-[#FF1744] text-[9px] font-bold text-white font-mono tracking-wider">
                       NEW
                     </span>
                   )}
@@ -198,7 +198,7 @@ export default function Navbar() {
                 >
                   <span>{item.label}</span>
                   {item.label === 'Pricing' && (
-                    <span className="px-2 py-0.5 rounded-full bg-[#FF1744] text-[10px] text-white font-mono">
+                    <span className="px-2 py-0.5 rounded bg-[#FF1744] text-[10px] text-white font-mono font-bold tracking-wider">
                       NEW
                     </span>
                   )}

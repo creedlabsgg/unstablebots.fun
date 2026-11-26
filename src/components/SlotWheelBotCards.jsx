@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Volume2, ArrowRight, Dices, ChevronLeft, ChevronRight, Activity } from 'lucide-react';
+import { Volume2, ArrowRight, Dices, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BOTS } from '../data/bots';
 import { usePageTransition } from '../contexts/transitionHook';
 import { playPop, playSlotTick, playSlotWin, playGrab } from '../utils/audio';
@@ -134,10 +134,6 @@ export default function SlotWheelBotCards() {
 
       {/* Section Header with Neko / CreeD Bento Details */}
       <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0a0a0c] border border-white/10 font-mono text-[11px] uppercase tracking-widest text-[#FFB703] font-bold mb-4 shadow-[0_0_20px_rgba(255,183,3,0.15)]">
-          <Activity className="w-3.5 h-3.5 animate-pulse text-[#FFB703]" />
-          <span>CYBER HORIZONTAL WHEEL • 4 LAUNCH PROTOCOLS</span>
-        </div>
         <h2 className="font-unbounded font-black text-3xl sm:text-5xl text-white mb-4 tracking-tight">
           Pick Your <span className="text-gold-gradient">Mental Breakdown.</span>
         </h2>
@@ -150,7 +146,7 @@ export default function SlotWheelBotCards() {
           <button
             onClick={handleSlotSpin}
             disabled={isSpinning}
-            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FFB703] via-[#FB8500] to-[#FF1744] text-black font-unbounded font-black text-xs uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_25px_rgba(255,183,3,0.35)] hover:scale-105 active:scale-95 ${
+            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#FFB703] via-[#FB8500] to-[#FF1744] text-black font-unbounded font-black text-xs uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_25px_rgba(255,183,3,0.35)] hover:scale-105 active:scale-95 ${
               isSpinning ? 'opacity-80 animate-pulse' : ''
             }`}
           >
@@ -158,11 +154,11 @@ export default function SlotWheelBotCards() {
             <span>{isSpinning ? 'ROLLING REEL...' : 'SPIN ASYLUM SLOT'}</span>
           </button>
 
-          <div className="flex items-center gap-1 bg-[#0a0a0c] border border-white/10 rounded-full p-1">
+          <div className="flex items-center gap-1 bg-[#0a0a0c] border border-white/10 rounded-xl p-1">
             <button
               onClick={handlePrev}
               aria-label="Previous Bot"
-              className="w-8 h-8 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -172,7 +168,7 @@ export default function SlotWheelBotCards() {
             <button
               onClick={handleNext}
               aria-label="Next Bot"
-              className="w-8 h-8 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -266,7 +262,7 @@ export default function SlotWheelBotCards() {
                       [ {theme.archetype} ]
                     </span>
                     <span
-                      className="font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white/10 uppercase tracking-wider"
+                      className="font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-md border border-white/10 uppercase tracking-wider"
                       style={{
                         backgroundColor: 'rgba(0,0,0,0.6)',
                         color: theme.primary,

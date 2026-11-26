@@ -83,11 +83,11 @@ export default function PricingPage() {
           Start 100% free with the whole crew. Upgrade for voice channel roasts, zero cooldowns, and server-wide brawl rights.
         </p>
 
-        {/* Modern Segmented Pill Toggle (Exact CreeD Labs Engine) */}
+        {/* Modern Segmented Toggle */}
         <div className="flex justify-center mt-10 relative z-10">
-          <div className="flex bg-[#050505] border border-white/10 p-1.5 rounded-full relative shadow-[inset_0_2px_12px_rgba(0,0,0,0.8)]">
+          <div className="flex bg-[#050505] border border-white/10 p-1.5 rounded-xl relative shadow-[inset_0_2px_12px_rgba(0,0,0,0.8)]">
             <motion.div
-              className="absolute inset-y-1.5 w-[140px] bg-gradient-to-r from-[#FFB703] to-[#FB8500] rounded-full shadow-[0_0_25px_rgba(255,183,3,0.35)]"
+              className="absolute inset-y-1.5 w-[140px] bg-gradient-to-r from-[#FFB703] to-[#FB8500] rounded-lg shadow-[0_0_25px_rgba(255,183,3,0.35)]"
               animate={{ x: isYearly ? 140 : 0 }}
               transition={{ type: 'spring', stiffness: 500, damping: 35 }}
             />
@@ -96,7 +96,7 @@ export default function PricingPage() {
                 playPop(0.9);
                 setIsYearly(false);
               }}
-              className={`relative z-10 w-[140px] py-2.5 rounded-full font-unbounded font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer ${
+              className={`relative z-10 w-[140px] py-2.5 rounded-lg font-unbounded font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer ${
                 !isYearly ? 'text-black' : 'text-zinc-400 hover:text-white'
               }`}
             >
@@ -107,12 +107,12 @@ export default function PricingPage() {
                 playPop(1.1);
                 setIsYearly(true);
               }}
-              className={`relative z-10 w-[140px] py-2.5 rounded-full font-unbounded font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 ${
+              className={`relative z-10 w-[140px] py-2.5 rounded-lg font-unbounded font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 ${
                 isYearly ? 'text-black' : 'text-zinc-400 hover:text-white'
               }`}
             >
               <span>Yearly</span>
-              <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-black/20 text-black font-mono font-bold">
+              <span className="text-[9px] px-1.5 py-0.5 rounded bg-black/20 text-black font-mono font-bold">
                 -35%
               </span>
             </button>
@@ -204,7 +204,7 @@ export default function PricingPage() {
           <div className="bg-[#050505] border border-[#FFB703]/50 rounded-3xl h-full flex flex-col justify-between shadow-[0_0_40px_rgba(255,183,3,0.2)] relative group transform md:-translate-y-4 transition-all duration-300 hover:border-[#FFB703] hover:shadow-[0_0_60px_rgba(255,183,3,0.35)]">
             
             {/* Popular Badge Floating Upwards */}
-            <div className="absolute -top-3.5 right-6 flex items-center gap-1.5 text-[11px] font-unbounded font-black tracking-wider text-black bg-gradient-to-r from-[#FFB703] to-[#FB8500] px-3.5 py-1 rounded-full shadow-[0_4px_20px_rgba(255,183,3,0.4)] z-20">
+            <div className="absolute -top-3.5 right-6 flex items-center gap-1.5 text-[10px] font-mono font-bold tracking-widest text-black bg-gradient-to-r from-[#FFB703] to-[#FB8500] px-3 py-1 rounded-md shadow-[0_4px_20px_rgba(255,183,3,0.4)] z-20">
               <Flame className="w-3.5 h-3.5 fill-black" />
               <span>MOST UNHINGED</span>
             </div>

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
-import { Swords, Zap, ArrowDown, Activity, Sparkles, MessageSquare, Terminal } from 'lucide-react';
+import { Swords, Zap, ArrowDown, MessageSquare, Terminal } from 'lucide-react';
 import { TAGLINES } from '../data/bots';
 import { usePageTransition } from '../contexts/transitionHook';
 import CyberGravityStream from './CyberGravityStream';
@@ -63,17 +63,6 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-[#FFB703]/12 via-[#FB8500]/15 to-[#FF1744]/12 blur-[140px] rounded-full pointer-events-none" />
 
         <motion.div style={{ y: yHero }} className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center">
-          
-          {/* Top Eyebrow Badge (Clean Monospace, Zero Pill Clutter) */}
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#050505]/90 border border-[#FFB703]/25 font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#FFB703] mb-6 shadow-[0_0_25px_rgba(255,183,3,0.15)]"
-          >
-            <Activity className="w-3.5 h-3.5 text-[#FFB703] animate-pulse" />
-            <span>SANITY: 14% · PERSONALITY: 100% · AI WITH ISSUES</span>
-          </motion.div>
 
           {/* Center Stage Headline */}
           <motion.h1
@@ -225,11 +214,6 @@ export default function Hero() {
          ===================================================================== */}
       <section className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-transparent via-[#050505] to-[#000000]">
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-[#FFB703]/30 font-mono text-xs uppercase tracking-widest text-[#FFB703] font-bold mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>DISCORD SERVER INVASION PROTOCOL</span>
-          </div>
-
           <h2 className="font-unbounded font-black text-3xl sm:text-5xl lg:text-6xl text-white mb-6 tracking-tight">
             Ready to Ruin <span className="text-gold-gradient">#general?</span>
           </h2>
