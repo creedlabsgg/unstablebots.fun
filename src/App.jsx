@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { TransitionProvider } from './contexts/TransitionContext';
 import QuarkAmbientBackground from './components/QuarkAmbientBackground';
-import QuarkIntroStrips from './components/QuarkIntroStrips';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -21,7 +20,6 @@ export default function App() {
     <TransitionProvider>
       <div className="min-h-screen flex flex-col bg-[#000000] text-white font-outfit relative selection:bg-[#FF1744] selection:text-white">
         <QuarkAmbientBackground />
-        <QuarkIntroStrips />
         <ScrollToTop />
         <Navbar />
         <main className="flex-grow relative z-10">

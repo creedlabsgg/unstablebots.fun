@@ -81,34 +81,28 @@ export function TransitionProvider({ children }) {
     >
       {children}
 
-      <div
-        className={`fixed inset-0 z-[99998] flex items-center justify-center transition-opacity duration-300 select-none ${
-          isTransitioning ? 'opacity-100 pointer-events-auto' : 'opacity-0 delay-400 pointer-events-none'
-        }`}
-        aria-hidden={!isTransitioning}
-      >
+      {isTransitioning && (
         <div
-          className={`absolute inset-0 bg-[#000000] border-x border-white/10 transition-transform duration-600 ease-[cubic-bezier(0.85,0,0.15,1)] ${
-            isTransitioning
-              ? direction === 'right-to-left'
+          className="fixed inset-0 z-[99998] flex items-center justify-center transition-opacity duration-300 select-none opacity-100 pointer-events-auto"
+          aria-hidden={!isTransitioning}
+        >
+          <div
+            className={`absolute inset-0 bg-[#000000] border-x border-white/10 transition-transform duration-600 ease-[cubic-bezier(0.85,0,0.15,1)] ${
+              direction === 'right-to-left'
                 ? 'scale-x-100 origin-right'
                 : 'scale-x-100 origin-left'
-              : direction === 'right-to-left'
-              ? 'scale-x-0 origin-left'
-              : 'scale-x-0 origin-right'
-          }`}
-        />
-        <div
-          className={`z-10 flex flex-col items-center gap-3 transition-all duration-600 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-            isTransitioning ? 'scale-100 opacity-100 delay-200' : 'scale-50 opacity-0'
-          }`}
-        >
-          <UnstableEmblem className="w-20 h-20" animateMode="always" />
-          <span className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 uppercase">
-            LOADING CHAOS...
-          </span>
+            }`}
+          />
+          <div
+            className="z-10 flex flex-col items-center gap-3 transition-all duration-600 ease-[cubic-bezier(0.34,1.56,0.64,1)] scale-100 opacity-100 delay-200"
+          >
+            <UnstableEmblem className="w-20 h-20" animateMode="always" />
+            <span className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 uppercase">
+              LOADING CHAOS...
+            </span>
+          </div>
         </div>
-      </div>
+      )}
     </TransitionContext.Provider>
   );
 }

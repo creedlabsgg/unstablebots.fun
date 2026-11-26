@@ -58,7 +58,7 @@
     background-color: #000000;
     color: #ededed;
     font-size: 90%;
-    overflow-x: clip;
+    overflow-x: hidden;
     scrollbar-gutter: stable;
   }
 
@@ -75,7 +75,7 @@
     letter-spacing: -0.015em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: clip;
+    overflow-x: hidden;
     -webkit-user-select: none;
     user-select: none;
   }
