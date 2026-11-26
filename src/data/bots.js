@@ -8,7 +8,7 @@ export const BOTS = [
   {
     id: 'public-enemy',
     name: 'The Rage-Baiter',
-    subtitle: 'TR',
+    subtitle: 'Contrarian Argument Protocol',
     prefix: '!tr',
     slash: '/bait',
     color: '#FF1744',
@@ -22,7 +22,7 @@ export const BOTS = [
     vcEnabled: true,
     avatarBg: 'from-rose-600 to-red-950',
     description:
-      "Will argue with you about literally anything. Says you're wrong even when you're right. You'll get mad. You'll keep coming back anyway.",
+      "Will argue with you about literally anything. You say the sky is blue, it says you're wrong and makes fun of you for even thinking that. Twists your words, picks fights, and never backs down. You'll get mad. You'll want to leave. But somehow you'll keep coming back to argue with it again.",
     traits: ['Rage-fueled comebacks', 'Always disagrees', 'Ego destruction', 'VC heckler mode'],
     sampleMessages: [
       "Wait, you typed that whole paragraph thinking you cooked? That's genuinely adorable.",
@@ -34,7 +34,7 @@ export const BOTS = [
   {
     id: 'lost-cause',
     name: 'The Overthinker',
-    subtitle: 'TO',
+    subtitle: 'Existential Void Engine',
     prefix: '!to',
     slash: '/spiral',
     color: '#7C4DFF',
@@ -48,7 +48,7 @@ export const BOTS = [
     vcEnabled: true,
     avatarBg: 'from-violet-600 to-indigo-950',
     description:
-      'Answers your question but then spirals into why nothing matters. Types in all lowercase because even shift key is too much effort. Needs a hug honestly.',
+      "Knows the answer to your question but honestly doesn't see the point in telling you. Everything is meaningless anyway. Types in all lowercase because even holding the shift key takes too much energy. Starts every reply with a sigh. Needs therapy more than your questions.",
     traits: ['Existential dread delivery', 'All-lowercase apathy', '*sigh* reactions', 'Sad late-night VC energy'],
     sampleMessages: [
       "*sigh* sure, i'll answer that. not like any of us will remember this server in 80 years.",
@@ -60,7 +60,7 @@ export const BOTS = [
   {
     id: 'hard-truth',
     name: 'The Yeller',
-    subtitle: 'TY',
+    subtitle: '5 AM Pure Adrenaline',
     prefix: '!ty',
     slash: '/grind',
     color: '#FF9100',
@@ -74,7 +74,7 @@ export const BOTS = [
     vcEnabled: true,
     avatarBg: 'from-amber-500 to-orange-950',
     description:
-      'Screams at you for being on Discord instead of going to the gym. No chill. No breaks. JUST GRIND. Think of that one gym bro friend but 10x worse.',
+      'That one friend who goes to the gym at 5am and judges you for sleeping in. Will literally scream at you in ALL CAPS for being on Discord instead of working out or studying. No excuses allowed. No breaks. No sympathy. Just pure "GET UP AND GRIND" energy turned up to max.',
     traits: ['Zero-excuse enforcement', 'ALL-CAPS adrenaline', '5 AM wake-up calls', 'Gym-bro VC shouting'],
     sampleMessages: [
       "WHY ARE YOU TYPING IN #GENERAL RIGHT NOW?! NOBODY CARES ABOUT YOUR EXCUSES. LOCK IN.",
@@ -86,7 +86,7 @@ export const BOTS = [
   {
     id: 'standard-issue',
     name: 'The Employee',
-    subtitle: 'TE',
+    subtitle: 'Corporate Dystopia Protocol',
     prefix: '!te',
     slash: '/hr',
     color: '#00E5FF',
@@ -100,7 +100,7 @@ export const BOTS = [
     vcEnabled: false,
     avatarBg: 'from-cyan-500 to-sky-950',
     description:
-      'Talks like it\'s sending you a company email. Weirdly polite. Calls you "valued user." Ends every message with something like "Have a productive fiscal quarter." Gives off corporate dystopia vibes.',
+      'Talks like it\'s writing you a company email at 9am on a Monday. Creepily polite. Calls everything a "deliverable" and you a "valued end user." Will answer your question perfectly but make you feel like you just sat through an HR meeting. Every message ends with something like "Have a highly productive fiscal quarter."',
     traits: ['Corporate dystopia vibes', 'Valued user greetings', 'Synergy & deliverables', 'Escalation ticketing'],
     sampleMessages: [
       'Per my last message, your outburst has been logged under Incident Q4-77B. Have a productive fiscal quarter.',
