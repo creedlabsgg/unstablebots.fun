@@ -12,6 +12,7 @@ import BotsPage from './pages/BotsPage';
 import PlaygroundPage from './pages/PlaygroundPage';
 import CommunityPage from './pages/CommunityPage';
 import CommandsPage from './pages/CommandsPage';
+import PricingPage from './pages/PricingPage';
 import AboutPage from './pages/AboutPage';
 import LegalPage from './pages/LegalPage';
 
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/arena" element={<PlaygroundPage />} />
             <Route path="/community" element={<CommunityPage />} />
             <Route path="/commands" element={<CommandsPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/legal" element={<LegalPage />} />
             <Route path="*" element={<LandingPage />} />

@@ -22,6 +22,12 @@
   --color-corporate: #00E5FF;
   --color-corporate-glow: rgba(0, 229, 255, 0.45);
 
+  --color-gold: #FFB703;
+  --color-gold-glow: rgba(255, 183, 3, 0.45);
+  --color-amber: #FB8500;
+  --color-amber-glow: rgba(251, 133, 0, 0.45);
+  --color-electric-gold: #FFD166;
+
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
   --animate-glitch: glitch 0.3s ease-in-out;
@@ -92,11 +98,44 @@
 
 /* Signature Gradient Typography */
 .text-unstable-gradient {
-  background: linear-gradient(135deg, #FF1744 0%, #FF9100 50%, #7C4DFF 100%);
+  background: linear-gradient(135deg, #FFB703 0%, #FB8500 45%, #FF1744 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF0B3 0%, #FFB703 50%, #FB8500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.text-molten-gradient {
+  background: linear-gradient(135deg, #FF1744 0%, #FB8500 50%, #FFD166 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Slot Machine Reel Glow */
+.slot-glow-amber {
+  box-shadow: 0 0 50px rgba(251, 133, 0, 0.25), inset 0 0 20px rgba(255, 183, 3, 0.15);
+}
+
+.slot-glow-active {
+  box-shadow: 0 0 60px rgba(255, 183, 3, 0.4), 0 0 100px rgba(251, 133, 0, 0.2), inset 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 .text-chaos-gradient {

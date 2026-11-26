@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Flame, CloudRain, Dumbbell, Briefcase, Swords, Zap } from 'lucide-react';
-import { BOTS, TAGLINES } from '../data/bots';
+import { Swords, Zap, ArrowDown, Activity, Sparkles, MessageSquare, Terminal } from 'lucide-react';
+import { TAGLINES } from '../data/bots';
 import { usePageTransition } from '../contexts/transitionHook';
 import CyberGravityStream from './CyberGravityStream';
-import TiltCard from './TiltCard';
+import SlotWheelBotCards from './SlotWheelBotCards';
 import KineticManifesto from './KineticManifesto';
 import ScrollytellingDecks from './ScrollytellingDecks';
 import LiveDiscordArena from './LiveDiscordArena';
@@ -13,13 +13,6 @@ import ConnectedChaosHub from './ConnectedChaosHub';
 import CommunityProofGrid from './CommunityProofGrid';
 import AnimatedLink from './AnimatedLink';
 import { playPop } from '../utils/audio';
-
-const BOT_ICONS = {
-  'public-enemy': Flame,
-  'lost-cause': CloudRain,
-  'hard-truth': Dumbbell,
-  'standard-issue': Briefcase,
-};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -36,182 +29,76 @@ const wordVariants = {
   },
 };
 
-function FloatingLaunchBotCard({ bot, index, onInvite }) {
-  const Icon = BOT_ICONS[bot.id] || Flame;
-  const [quoteIdx, setQuoteIdx] = useState(0);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 45, scale: 0.94 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.7, delay: 0.35 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="h-full"
-    >
-      <TiltCard auraColor={bot.aura} enableFloat={true} floatDelay={index * 0.45}>
-        <div
-          onClick={() => {
-            setQuoteIdx((prev) => (prev + 1) % bot.sampleMessages.length);
-            playPop(1 + index * 0.1);
-          }}
-          className="h-full rounded-3xl border border-white/[0.1] bg-[#000000]/95 p-6 flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.95)] cursor-pointer group/bot"
-        >
-          <div>
-            {/* Clean CreeD-style Icon & Sharp Monospace Label (NO PILLS) */}
-            <div className="flex items-start justify-between gap-3 mb-5">
-              <div
-                className="w-12 h-12 rounded-2xl border flex items-center justify-center transition-transform duration-300 group-hover/bot:scale-110"
-                style={{
-                  color: bot.color,
-                  borderColor: `${bot.color}40`,
-                  backgroundColor: `${bot.color}12`,
-                  boxShadow: `0 0 22px ${bot.color}25`,
-                }}
-              >
-                <Icon className="w-5 h-5" />
-              </div>
-
-              <span className="font-mono text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: bot.color }}>
-                {bot.roleLabel}
-              </span>
-            </div>
-
-            {/* Bot Identity */}
-            <div className="mb-4">
-              <h3 className="font-unbounded font-black text-xl text-white tracking-tight">
-                {bot.name}
-              </h3>
-              <p className="font-outfit font-semibold text-sm mt-0.5" style={{ color: bot.color }}>
-                {bot.subtitle}
-              </p>
-            </div>
-
-            {/* Clean Typographic Sample Line */}
-            <div className="border-l-2 pl-3.5 py-1 mb-5 min-h-[60px] flex items-center" style={{ borderColor: `${bot.color}66` }}>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={quoteIdx}
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-xs sm:text-sm text-zinc-300 italic leading-relaxed line-clamp-3"
-                >
-                  &ldquo;{bot.sampleMessages[quoteIdx]}&rdquo;
-                </motion.p>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          <div>
-            {/* Minimal Sanity Readout */}
-            <div className="space-y-2 mb-5">
-              <div className="flex items-center justify-between font-mono text-[11px]">
-                <span className="text-zinc-500 tracking-wider">SANITY {bot.sanity}%</span>
-                <span className="text-zinc-400">PERSONALITY 100%</span>
-              </div>
-              <div className="w-full h-1 bg-white/[0.06] rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${bot.sanity}%` }}
-                  transition={{ duration: 1.2, delay: 0.4 + index * 0.1 }}
-                  className="h-full"
-                  style={{ backgroundColor: bot.color }}
-                />
-              </div>
-            </div>
-
-            {/* Clean Footer Divider Action Row (CreeD CyberSec style) */}
-            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between gap-3">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  playPop(1.2);
-                  onInvite(bot.id);
-                }}
-                className="font-unbounded font-bold text-xs uppercase tracking-wider text-white hover:opacity-80 transition-opacity cursor-pointer"
-                style={{ color: bot.color }}
-              >
-                + Invite {bot.name}
-              </button>
-              <AnimatedLink
-                to={`/bots#${bot.id}`}
-                onClick={(e) => e.stopPropagation()}
-                className="font-mono text-[11px] text-zinc-500 hover:text-white transition-colors"
-              >
-                {bot.prefix} / {bot.slash} →
-              </AnimatedLink>
-            </div>
-          </div>
-        </div>
-      </TiltCard>
-    </motion.div>
-  );
-}
-
 export default function Hero() {
-  const { openInviteModal } = usePageTransition();
-  const [taglineIdx, setTaglineIdx] = useState(0);
   const heroRef = useRef(null);
+  const [taglineIdx, setTaglineIdx] = useState(0);
+  const { openInviteModal } = usePageTransition();
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ['start start', 'end start'],
   });
+
   const yHero = useSpring(useTransform(scrollYProgress, [0, 0.7], [0, 60]), { stiffness: 100, damping: 28 });
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTaglineIdx((prev) => (prev + 1) % TAGLINES.length);
-    }, 3000);
+    }, 3200);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <div className="bg-transparent text-white relative overflow-x-clip">
       {/* =====================================================================
-          HERO LAUNCH VIEWPORT — ZED BLACK + 4 FLOATING BOT CARDS ON LAUNCH
+          FIRST FRAME: CENTERED STAGE HERO (No static cards crowding initial view)
          ===================================================================== */}
       <section
         ref={heroRef}
-        className="relative min-h-[calc(100vh-4.5rem)] flex flex-col items-center justify-center px-4 sm:px-6 pt-12 pb-16 overflow-hidden"
+        className="relative min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center px-4 sm:px-6 pt-8 pb-16 overflow-hidden"
       >
         <CyberGravityStream />
 
-        <motion.div style={{ y: yHero }} className="relative z-10 w-full max-w-[92rem] mx-auto flex flex-col items-center">
-          {/* Clean Editorial Eyebrow (NO PILL) */}
+        {/* Ambient Center Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-[#FFB703]/12 via-[#FB8500]/15 to-[#FF1744]/12 blur-[140px] rounded-full pointer-events-none" />
+
+        <motion.div style={{ y: yHero }} className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center">
+          
+          {/* Top Eyebrow Badge (Clean Monospace, Zero Pill Clutter) */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-            className="font-mono text-xs font-bold tracking-[0.26em] uppercase text-[#FF1744] mb-5 text-center"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#050505]/90 border border-[#FFB703]/25 font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#FFB703] mb-6 shadow-[0_0_25px_rgba(255,183,3,0.15)]"
           >
-            SANITY: 14% · PERSONALITY: 100%
+            <Activity className="w-3.5 h-3.5 text-[#FFB703] animate-pulse" />
+            <span>SANITY: 14% · PERSONALITY: 100% · AI WITH ISSUES</span>
           </motion.div>
 
-          {/* 3D Spring CreeD-Style Headline */}
+          {/* Center Stage Headline */}
           <motion.h1
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="font-unbounded font-black text-4xl sm:text-6xl lg:text-7xl xl:text-[4.75rem] leading-[1.03] tracking-tight text-center max-w-5xl mx-auto mb-5 flex flex-wrap justify-center gap-x-3.5 sm:gap-x-4 [perspective:1200px]"
+            className="font-unbounded font-black text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] leading-[1.04] tracking-tight text-center max-w-5xl mx-auto mb-6 flex flex-wrap justify-center gap-x-3 sm:gap-x-4.5 [perspective:1200px]"
           >
             {['Discord', 'bots', 'with'].map((w, i) => (
-              <motion.span key={i} variants={wordVariants} className="inline-block text-white">
+              <motion.span key={i} variants={wordVariants} className="inline-block text-white drop-shadow-2xl">
                 {w}
               </motion.span>
             ))}
-            <span className="inline-flex flex-wrap justify-center gap-x-3.5 text-unstable-gradient pb-1">
+            <span className="inline-flex flex-wrap justify-center gap-x-3.5 text-gold-gradient pb-1">
               {['emotional', 'baggage.'].map((w, i) => (
-                <motion.span key={i} variants={wordVariants} className="inline-block">
+                <motion.span key={i} variants={wordVariants} className="inline-block drop-shadow-[0_0_30px_rgba(255,183,3,0.3)]">
                   {w}
                 </motion.span>
               ))}
             </span>
           </motion.h1>
 
-          {/* Rotating Editorial Subheadline (Zero Pill Clutter) */}
-          <div className="mb-8 text-center max-w-2xl mx-auto space-y-1.5">
-            <div className="h-7 overflow-hidden flex items-center justify-center">
+          {/* Rotating Taglines */}
+          <div className="mb-8 text-center max-w-2xl mx-auto space-y-2">
+            <div className="h-8 overflow-hidden flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.p
                   key={taglineIdx}
@@ -225,145 +112,149 @@ export default function Hero() {
                 </motion.p>
               </AnimatePresence>
             </div>
-            <p className="font-mono text-xs text-zinc-500">
-              AI with issues. Invite at your own risk. Click any floating card to sample lines.
+            <p className="font-mono text-xs text-zinc-400">
+              AI with issues. Invite at your own risk. 4 chaotic personalities ready to infect #general.
             </p>
           </div>
 
-          {/* Primary Hero Buttons */}
+          {/* Primary Action Controls */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-3.5 mb-12"
+            className="flex flex-wrap items-center justify-center gap-3.5 mb-10"
           >
             <button
               onClick={() => {
                 playPop(1.2);
                 openInviteModal('all');
               }}
-              className="px-7 py-3.5 rounded-2xl bg-[#FF1744] hover:bg-[#ff2c56] text-white font-unbounded font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer shadow-[0_0_35px_rgba(255,23,68,0.45)]"
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-[#FFB703] via-[#FB8500] to-[#FF1744] hover:brightness-110 text-black font-unbounded font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all hover:scale-[1.04] active:scale-95 cursor-pointer shadow-[0_0_35px_rgba(255,183,3,0.35)]"
             >
-              <Zap className="w-4 h-4 fill-white" />
+              <Zap className="w-4 h-4 fill-black" />
               <span>Invite All 4 Bots</span>
             </button>
 
             <a
-              href="#live-arena"
+              href="#slot-wheel"
               onClick={() => playPop(1.0)}
-              className="px-7 py-3.5 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.12] text-white font-unbounded font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer"
+              className="px-7 py-4 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.12] text-white font-unbounded font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer hover:border-white/25"
             >
-              <Swords className="w-4 h-4 text-[#FF9100]" />
-              <span>Test 4-Bot Fight Mode</span>
+              <Swords className="w-4 h-4 text-[#FFB703]" />
+              <span>Roll The Bot Slot</span>
             </a>
           </motion.div>
 
-          {/* THE 4 FLOATING BOT CARDS RIGHT ON LAUNCH */}
-          <div id="bots" className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-6">
-            {BOTS.map((bot, i) => (
-              <FloatingLaunchBotCard key={bot.id} bot={bot} index={i} onInvite={openInviteModal} />
-            ))}
-          </div>
-
-          {/* Scroll to Reveal Prompt */}
+          {/* Live Server Proof Bar (NekoTickets style) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.0 }}
-            className="mt-12 flex flex-col items-center gap-2 pointer-events-none"
+            transition={{ delay: 0.5 }}
+            className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-4 border-t border-white/[0.08] text-xs font-mono text-zinc-400"
           >
-            <span className="font-mono text-[10px] tracking-[0.28em] text-zinc-500 uppercase">
-              Scroll to reveal chaos
-            </span>
-            <motion.div animate={{ y: [0, 7, 0] }} transition={{ duration: 1.8, repeat: Infinity }}>
-              <ArrowDown className="w-4 h-4 text-[#FF1744]" />
-            </motion.div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_6px_#10B981]" />
+              <span className="font-bold text-white">12,450+</span> Servers Connected
+            </div>
+            <div className="hidden sm:inline-block text-zinc-700">•</div>
+            <div className="flex items-center gap-2">
+              <MessageSquare className="w-3.5 h-3.5 text-[#FFB703]" />
+              <span className="font-bold text-white">4.8M</span> Chaotic Messages
+            </div>
+            <div className="hidden sm:inline-block text-zinc-700">•</div>
+            <div className="flex items-center gap-2">
+              <Terminal className="w-3.5 h-3.5 text-[#00E5FF]" />
+              <span className="font-bold text-white">0%</span> Corporate Politeness
+            </div>
           </motion.div>
+
+          {/* Scroll Down Cue */}
+          <motion.a
+            href="#slot-wheel"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+            className="mt-10 inline-flex flex-col items-center gap-1.5 text-zinc-500 hover:text-[#FFB703] transition-colors cursor-pointer"
+          >
+            <span className="font-mono text-[10px] tracking-widest uppercase">DISCOVER THE ROSTER</span>
+            <ArrowDown className="w-4 h-4" />
+          </motion.a>
         </motion.div>
       </section>
 
-      {/* SECTION 2: QUARK.BOT KINETIC MANIFESTO */}
+      {/* =====================================================================
+          SECTION 2: HORIZONTAL SLOT-WHEEL BOT CARDS (CreeD Pricing Mist & Glow)
+         ===================================================================== */}
+      <div id="slot-wheel">
+        <SlotWheelBotCards />
+      </div>
+
+      {/* =====================================================================
+          SECTION 3: KINETIC MANIFESTO — SCROLL SCRUB TEXT REVEAL
+         ===================================================================== */}
       <KineticManifesto />
 
-      {/* SECTION 3: CREEDCYBERSEC SCROLL-TO-REVEAL PIPELINE */}
+      {/* =====================================================================
+          SECTION 4: SCROLLYTELLING DECKS (Sticky 300vh Bot Protocols)
+         ===================================================================== */}
       <ScrollytellingDecks />
 
-      {/* SECTION 4: LIVE INTERACTIVE DISCORD ARENA */}
-      <section id="live-arena" className="py-24 sm:py-28 px-4 sm:px-6 relative bg-[#000000]">
-        <div className="max-w-5xl mx-auto text-center mb-12">
-          <div className="font-mono text-xs uppercase tracking-[0.25em] font-bold text-[#00E5FF] mb-3">
-            LIVE SANDBOX · ZERO SIGNUP NEEDED
-          </div>
-          <h2 className="font-unbounded font-black text-3xl sm:text-5xl text-white mb-4">
-            Provoke them yourself.
-          </h2>
-          <p className="font-outfit text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto">
-            Pick a bot personality, type literally anything, or hit <span className="text-[#FF1744] font-bold">TRIGGER /fight</span> to watch all four lose their minds right here.
-          </p>
-        </div>
-
+      {/* =====================================================================
+          SECTION 5: LIVE DISCORD SIMULATOR ARENA (With 4-Bot Fight Mode)
+         ===================================================================== */}
+      <div id="live-arena">
         <LiveDiscordArena />
-      </section>
+      </div>
 
-      {/* SECTION 5: QUARK.BOT COMPLETE COVERAGE MARQUEE */}
+      {/* =====================================================================
+          SECTION 6: INFINITE FEATURE MARQUEES (Quark-Style)
+         ===================================================================== */}
       <CompleteCoverageMarquee />
 
-      {/* SECTION 6: QUARK.BOT CONNECTED CHAOS HUB */}
+      {/* =====================================================================
+          SECTION 7: CONNECTED CHAOS HUB (Quark SVG Curved Beams)
+         ===================================================================== */}
       <ConnectedChaosHub />
 
-      {/* SECTION 7: QUARK.BOT COMMUNITY PROOF MARQUEE */}
+      {/* =====================================================================
+          SECTION 8: COMMUNITY EVIDENCE TESTIMONIALS (Vertical Marquees)
+         ===================================================================== */}
       <CommunityProofGrid />
 
-      {/* SECTION 8: METRICS + FINAL CTA */}
-      <section className="py-20 border-y border-white/[0.06] bg-[#000000] relative">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { value: '4', label: 'Unhinged Personalities', color: '#FF1744' },
-            { value: '14%', label: 'Collective Sanity', color: '#7C4DFF' },
-            { value: '100%', label: 'Pure Personality', color: '#FF9100' },
-            { value: '0', label: 'Boring Disclaimers', color: '#00E5FF' },
-          ].map((stat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
-            >
-              <div className="font-unbounded font-black text-4xl sm:text-6xl mb-2" style={{ color: stat.color }}>
-                {stat.value}
-              </div>
-              <div className="font-mono text-xs uppercase tracking-widest text-zinc-500">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <section className="py-28 sm:py-36 bg-[#000000] relative text-center px-6 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full bg-[#FF1744]/[0.06] blur-[140px] pointer-events-none" />
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div className="font-mono text-xs text-[#FF1744] uppercase tracking-[0.28em] font-bold mb-4">
-            FINAL WARNING
+      {/* =====================================================================
+          SECTION 9: PRE-FOOTER INVASION CTA
+         ===================================================================== */}
+      <section className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-transparent via-[#050505] to-[#000000]">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-[#FFB703]/30 font-mono text-xs uppercase tracking-widest text-[#FFB703] font-bold mb-6">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>DISCORD SERVER INVASION PROTOCOL</span>
           </div>
-          <h2 className="font-unbounded font-black text-4xl sm:text-6xl md:text-7xl text-white tracking-tight leading-[1.02] mb-6">
-            AI with issues. <br />
-            <span className="text-unstable-gradient">Invite at your own risk.</span>
+
+          <h2 className="font-unbounded font-black text-3xl sm:text-5xl lg:text-6xl text-white mb-6 tracking-tight">
+            Ready to Ruin <span className="text-gold-gradient">#general?</span>
           </h2>
-          <p className="font-outfit text-zinc-400 text-lg sm:text-xl max-w-xl mx-auto mb-10">
-            Discord bots with emotional baggage. Sanity: 14%. Personality: 100%. Ready to ruin #general forever?
+
+          <p className="font-outfit text-zinc-400 text-base sm:text-lg max-w-xl mx-auto mb-10">
+            Discord bots with emotional baggage. Sanity: 14%. Personality: 100%. Invite at your own risk.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <button
-              onClick={() => openInviteModal('all')}
-              className="px-9 py-4 rounded-2xl bg-[#FF1744] hover:bg-[#ff2c56] text-white font-unbounded font-black text-sm uppercase tracking-wider transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-[0_0_45px_rgba(255,23,68,0.5)]"
+              onClick={() => {
+                playPop(1.2);
+                openInviteModal('all');
+              }}
+              className="px-9 py-4 rounded-2xl bg-gradient-to-r from-[#FFB703] via-[#FB8500] to-[#FF1744] hover:brightness-110 text-black font-unbounded font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-[0_0_40px_rgba(255,183,3,0.4)]"
             >
-              Deploy All 4 Bots
+              <Zap className="w-4 h-4 fill-black" />
+              <span>Invite The 4 Bots Now</span>
             </button>
+
             <AnimatedLink
-              to="/community"
-              className="px-9 py-4 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white font-unbounded font-bold text-sm uppercase tracking-wider transition-all"
+              to="/pricing"
+              className="px-8 py-4 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white font-unbounded font-bold text-xs sm:text-sm uppercase tracking-wider transition-all"
             >
-              Visit Asylum Community
+              <span>View Pricing Plans</span>
             </AnimatedLink>
           </div>
         </div>

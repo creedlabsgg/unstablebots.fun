@@ -315,8 +315,14 @@ export default function Footer() {
               </h4>
               <ul className="flex flex-col gap-3.5 text-sm font-outfit font-medium">
                 <li>
+                  <AnimatedLink to="/pricing" className={getLinkClass()}>
+                    <Zap className={getIconClass(true)} />
+                    <span className={getTextClass()}>Pricing Plans</span>
+                  </AnimatedLink>
+                </li>
+                <li>
                   <AnimatedLink to="/arena" className={getLinkClass()}>
-                    <Swords className={getIconClass(true)} />
+                    <Swords className={getIconClass(false, 'features')} />
                     <span className={getTextClass()}>4-Bot Brawl</span>
                   </AnimatedLink>
                 </li>
