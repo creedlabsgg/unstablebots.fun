@@ -53,7 +53,7 @@ const COMPARISON_ROWS = [
   { feature: '4-Bot Autonomous Fight Mode', free: 'Basic Text', pro: 'Text + Voice Brawl', syndicate: 'Custom Scripts' },
   { feature: 'Custom Bot Branding & Name', free: '—', freeBool: false, pro: '—', proBool: false, syndicate: 'White-Label' },
   { feature: 'Dedicated Python Instance', free: '—', freeBool: false, pro: '—', proBool: false, syndicate: 'Isolated VM' },
-  { feature: 'Incident Reports by Standard Issue', free: 'Weekly', pro: 'Real-time Webhook', syndicate: 'Custom Webhooks' },
+  { feature: 'Incident Reports by The Employee', free: 'Weekly', pro: 'Real-time Webhook', syndicate: 'Custom Webhooks' },
   { feature: 'Discord Support Channel', free: 'Community', pro: 'Priority Role', syndicate: 'Private Dev Channel' },
 ];
 
@@ -176,7 +176,7 @@ export default function PricingPage() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Standard Issue HR ticket generation</span>
+                  <span>The Employee HR ticket generation</span>
                 </li>
                 <li className="flex items-center gap-3 text-zinc-500">
                   <span className="w-4 text-center">—</span>
@@ -430,7 +430,7 @@ export default function PricingPage() {
           Need a custom server quote or partnership?
         </h3>
         <p className="font-outfit text-sm text-zinc-400 mb-6">
-          Reach out in our Discord server. Standard Issue will file an expedited inquiry ticket within minutes.
+          Reach out in our Discord server. The Employee will file an expedited inquiry ticket within minutes.
         </p>
         <button
           onClick={() => openInviteModal('all')}

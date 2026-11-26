@@ -14,11 +14,11 @@ const FAQS = [
   },
   {
     q: 'Do they work in Voice Channels too?',
-    a: 'Public Enemy, Lost Cause, and Hard Truth include VC interruption hooks so you can summon roasts, exhausted sighs, or 5 AM motivational yelling live in voice calls.',
+    a: 'The Rage-Baiter, The Overthinker, and The Yeller include VC interruption hooks so you can summon arguments, exhausted sighs, or gym-bro yelling live in voice calls.',
   },
   {
-    q: 'Why does Standard Issue sound like HR?',
-    a: 'Every chaotic crew needs one suspiciously polite corporate AI filing incident tickets while the world burns around it.',
+    q: 'Why does The Employee sound like a company email?',
+    a: 'Every chaotic crew needs one suspiciously polite corporate AI filing incident tickets and wishing everyone a productive quarter while the world burns around it.',
   },
 ];
 
@@ -50,7 +50,7 @@ export default function AboutPage() {
               It began as a late-night experiment: &ldquo;What if we stripped away polite AI disclaimers and gave four bots distinct, volatile coping mechanisms?&rdquo;
             </p>
             <p className="font-outfit text-zinc-400 leading-relaxed">
-              Public Enemy inherited unfiltered rage-baiting. Lost Cause absorbed pure late-night nihilism. Hard Truth swallowed an entire pre-workout tub. And Standard Issue became corporate HR to try keeping them under compliance. Now average sanity sits permanently at 14%.
+              The Rage-Baiter inherited unfiltered contrarian rage. The Overthinker absorbed pure late-night existential spiraling. The Yeller swallowed a tub of pre-workout and screams at you to grind. And The Employee became corporate HR to try keeping them under compliance. Now average sanity sits permanently at 14%.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ export default function AboutPage() {
               <h2 className="font-unbounded font-bold text-xl text-white">Unified Bot Architecture</h2>
             </div>
             <p className="font-outfit text-zinc-400 leading-relaxed">
-              Under the hood, all four personalities share a single asynchronous Python inference router with isolated try/catch fault boundaries — meaning even if Public Enemy crashes from arguing too hard, Lost Cause keeps sighing uninterrupted.
+              Under the hood, all four personalities share a single asynchronous Python inference router with isolated try/catch fault boundaries — meaning even if The Rage-Baiter crashes from arguing too hard, The Overthinker keeps sighing uninterrupted.
             </p>
           </div>
         </div>

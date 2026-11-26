@@ -98,7 +98,7 @@ function CoverageCard({ item }) {
 export default function CompleteCoverageMarquee() {
   const rowOne = [
     { id: 'c1', title: 'Rage-Bait Engine', desc: 'Contrarian logic that disagrees with everything you type.', icon: Flame, color: '#FF1744' },
-    { id: 'c2', title: '/target @user', desc: 'Focus Public Enemy onto one lucky server member.', icon: ShieldAlert, color: '#FF1744' },
+    { id: 'c2', title: '/bait @user', desc: 'Focus The Rage-Baiter onto one lucky server member.', icon: ShieldAlert, color: '#FF1744' },
     { id: 'c3', title: 'Existential Sighs', desc: 'Low-energy nihilistic wisdom delivered in all lowercase.', icon: CloudRain, color: '#7C4DFF' },
     { id: 'c4', title: 'ALL-CAPS Drills', desc: 'Zero-excuse 5 AM motivation straight into #general.', icon: Dumbbell, color: '#FF9100' },
     { id: 'c5', title: 'HR Escalation Tickets', desc: 'Passive-aggressive corporate compliance responses.', icon: Briefcase, color: '#00E5FF' },
@@ -114,10 +114,10 @@ export default function CompleteCoverageMarquee() {
 
   const rowThree = [
     { id: 'c11', title: 'Zero Filter Mode', desc: 'No boring "As an AI language model" disclaimers.', icon: Skull, color: '#FF1744' },
-    { id: 'c12', title: 'Custom Prefixes', desc: '!pe, !lc, !ht, !si — plus clean slash commands.', icon: Bot, color: '#00E5FF' },
+    { id: 'c12', title: 'Custom Prefixes', desc: '!tr, !to, !ty, !te — plus clean slash commands.', icon: Bot, color: '#00E5FF' },
     { id: 'c13', title: 'Audio Reactions', desc: 'Voice channel interruptions & emotional sound cues.', icon: Volume2, color: '#FF9100' },
     { id: 'c14', title: 'Live Sanity Telemetry', desc: 'Track collective server stability dropping in real time.', icon: Radio, color: '#7C4DFF' },
-    { id: 'c15', title: 'Synergy Compliance', desc: 'Standard Issue logs every roast for Q4 review.', icon: Sparkles, color: '#00E5FF' },
+    { id: 'c15', title: 'Synergy Compliance', desc: 'The Employee logs every roast for Q4 review.', icon: Sparkles, color: '#00E5FF' },
   ];
 
   return (

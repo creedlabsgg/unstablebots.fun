@@ -185,7 +185,7 @@ export default function Footer() {
                   onChange={(e) => {
                     const lang = e.target.value;
                     if (lang !== 'en') {
-                      showToast(`Translating emotional baggage to ${lang}... even Public Enemy complains in ${lang}.`);
+                      showToast(`Translating emotional baggage to ${lang}... even The Rage-Baiter complains in ${lang}.`);
                     }
                   }}
                 >
@@ -280,25 +280,25 @@ export default function Footer() {
                 <li>
                   <AnimatedLink to="/bots#public-enemy" className={getLinkClass()}>
                     <Flame className={getIconClass(true)} />
-                    <span className={getTextClass()}>Public Enemy</span>
+                    <span className={getTextClass()}>The Rage-Baiter</span>
                   </AnimatedLink>
                 </li>
                 <li>
                   <AnimatedLink to="/bots#lost-cause" className={getLinkClass()}>
                     <CloudRain className={getIconClass(false, 'bots')} />
-                    <span className={getTextClass()}>Lost Cause</span>
+                    <span className={getTextClass()}>The Overthinker</span>
                   </AnimatedLink>
                 </li>
                 <li>
                   <AnimatedLink to="/bots#hard-truth" className={getLinkClass()}>
                     <Dumbbell className={getIconClass(false, 'bots')} />
-                    <span className={getTextClass()}>Hard Truth</span>
+                    <span className={getTextClass()}>The Yeller</span>
                   </AnimatedLink>
                 </li>
                 <li>
                   <AnimatedLink to="/bots#standard-issue" className={getLinkClass()}>
                     <Briefcase className={getIconClass(false, 'bots')} />
-                    <span className={getTextClass()}>Standard Issue</span>
+                    <span className={getTextClass()}>The Employee</span>
                   </AnimatedLink>
                 </li>
               </ul>
